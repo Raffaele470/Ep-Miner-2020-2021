@@ -1,0 +1,264 @@
+@startuml
+!define LIGHTORANGE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class database.NoValueException {
++ <<Create>> NoValueException(String)
+}
+class mining.EmergingPatternException {
++ <<Create>> EmergingPatternException()
+}
+class server.MultiServer {
+- {static} int PORT
+# <<Create>> MultiServer()
++ {static} void main(String[])
+- void run()
+}
+class mining.EmergingPatternMiner {
+- List<EmergingPattern> epList
++ <<Create>> EmergingPatternMiner(Data,FrequentPatternMiner,float)
+# float computeGrowRate(Data,FrequentPattern)
+# EmergingPattern computeEmergingPattern(Data,FrequentPattern,float)
++ String toString()
++ Iterator<EmergingPattern> iterator()
++ void salva(String)
++ {static} EmergingPatternMiner carica(String)
+}
+class utility.EmptyQueueException {
++ <<Create>> EmptyQueueException()
+}
+class keyboardinput.Keyboard {
+- {static} boolean printErrors
+- {static} int errorCount
+- {static} String current_token
+- {static} StringTokenizer reader
+- {static} BufferedReader in
++ {static} int getErrorCount()
++ {static} void resetErrorCount(int)
++ {static} boolean getPrintErrors()
++ {static} void setPrintErrors(boolean)
+- {static} void error(String)
+- {static} String getNextToken()
+- {static} String getNextToken(boolean)
+- {static} String getNextInputToken(boolean)
++ {static} boolean endOfLine()
++ {static} String readString()
++ {static} String readWord()
++ {static} boolean readBoolean()
++ {static} char readChar()
++ {static} int readInt()
++ {static} long readLong()
++ {static} float readFloat()
++ {static} double readDouble()
+}
+abstract class data.Attribute {
+- String name
+- int index
+# <<Create>> Attribute(String,int)
++ String getName()
++ int getIndex()
++ String toString()
+}
+class server.ServerOneClient {
+- Socket socket
+- ObjectInputStream in
+- ObjectOutputStream out
+# <<Create>> ServerOneClient(Socket)
++ void run()
+}
+class mining.FrequentPattern {
+- List<Item> fp
+- float support
++ <<Create>> FrequentPattern()
++ <<Create>> FrequentPattern(FrequentPattern)
+# void addItem(Item)
++ Item getItem(int)
++ float getSupport()
++ int getPatternLength()
++ String toString()
+# float computeSupport(Data)
+# void setSupport(float)
++ Iterator<Item> iterator()
++ int compareTo(FrequentPattern)
+}
+class data.Data {
+- Object[][] data
+- int numberOfExamples
+- List<Attribute> attributeSet
++ <<Create>> Data(String)
++ int getNumberOfExamples()
++ int getNumberOfAttributes()
++ Object getAttributeValue(int,int)
++ Attribute getAttribute(int)
++ String toString()
+}
+class utility.Queue {
+- T e
+- Record begin
+- Record end
++ boolean isEmpty()
++ void enqueue(T)
++ Object first()
++ void dequeue()
+}
+class utility.Queue.Record {
+~ T e
+~ Record next
+~ <<Create>> Record(T)
+}
+abstract class mining.Item {
+- Attribute attribute
+- Object value
++ <<Create>> Item(Attribute,Object)
++ Attribute getAttribute()
++ Object getValue()
++ {abstract}boolean checkItemCondition(Object)
++ String toString()
+}
+class mining.DiscreteItem {
+# <<Create>> DiscreteItem(DiscreteAttribute,String)
++ boolean checkItemCondition(Object)
+}
+class utility.ComparatorGrowRate {
++ int compare(EmergingPattern,EmergingPattern)
+}
+class data.ContinuousAttributeIterator {
+- float min
+- float max
+- int j
+- int numValues
+~ <<Create>> ContinuousAttributeIterator(float,float,int)
++ boolean hasNext()
++ Float next()
++ void remove()
+}
+class database.DbAccess {
+- String DRIVER_CLASS_NAME
+- String DBMS
+- String SERVER
+- int PORT
+- String DATABASE
+- String USER_ID
+- String PASSWORD
+- Connection conn
++ void initConnection()
++ Connection getConnection()
++ void closeConnection()
+}
+class database.TableData {
+- Connection connection
++ <<Create>> TableData(Connection)
++ List<TupleData> getTransazioni(String)
++ List<Object> getDistinctColumnValues(String,Column)
++ Object getAggregateColumnValue(String,Column,QUERY_TYPE)
+}
+class database.TableData.TupleData {
++ List<Object> tuple
++ String toString()
+}
+class mining.EmergingPattern {
+- float growrate
+# <<Create>> EmergingPattern(FrequentPattern,float)
++ float getGrowrate()
+# void setGrowrate(float)
++ String toString()
+}
+class mining.Interval {
+- float inf
+- float sup
++ <<Create>> Interval(float,float)
+# void setInf(float)
+# void setSup(float)
++ float getInf()
++ float getSup()
+# boolean checkValueInclusion(float)
++ String toString()
+}
+class mining.ContinuousItem {
+# <<Create>> ContinuousItem(ContinuousAttribute,Interval)
++ boolean checkItemCondition(Object)
++ String toString()
+}
+class database.TableSchema {
+- Connection connection
+~ List<Column> tableSchema
++ <<Create>> TableSchema(String,Connection)
++ int getNumberOfAttributes()
++ Column getColumn(int)
+}
+class database.TableSchema.Column {
+- String name
+- String type
+~ <<Create>> Column(String,String)
++ String getColumnName()
++ boolean isNumber()
++ String toString()
+}
+class data.ContinuousAttribute {
+- float max
+- float min
+# <<Create>> ContinuousAttribute(String,int,float,float)
++ float getMin()
++ float getMax()
++ Iterator<Float> iterator()
+}
+class data.DiscreteAttribute {
+~ String[] values
+# <<Create>> DiscreteAttribute(String,int,String[])
++ int getNumberOfDistinctValues()
++ String getValue(int)
+}
+class data.EmptySetException {
++ <<Create>> EmptySetException()
+}
+class mining.FrequentPatternMiner {
+- List<FrequentPattern> outputFP
++ <<Create>> FrequentPatternMiner(Data,float)
+- List expandFrequentPatterns(Data,float,Queue<FrequentPattern>,List)
+# FrequentPattern refineFrequentPattern(FrequentPattern,Item)
++ List getOutputFP()
++ String toString()
++ Iterator<FrequentPattern> iterator()
++ void salva(String)
++ {static} FrequentPatternMiner carica(String)
+}
+class database.DatabaseConnectionException {
+~ <<Create>> DatabaseConnectionException(String)
+}
+
+
+database.Exception <|-- database.NoValueException
+mining.Exception <|-- mining.EmergingPatternException
+mining.Iterable <|.. mining.EmergingPatternMiner
+mining.Serializable <|.. mining.EmergingPatternMiner
+utility.Exception <|-- utility.EmptyQueueException
+java.io.Serializable <|.. data.Attribute
+server.Thread <|-- server.ServerOneClient
+mining.Iterable <|.. mining.FrequentPattern
+mining.Comparable <|.. mining.FrequentPattern
+java.io.Serializable <|.. mining.FrequentPattern
+java.io.Serializable <|.. utility.Queue
+utility.Queue +.. utility.Queue.Record
+java.io.Serializable <|.. mining.Item
+java.io.Serializable <|.. mining.DiscreteItem
+mining.Item <|-- mining.DiscreteItem
+java.util.Comparator <|.. utility.ComparatorGrowRate
+java.util.Iterator <|.. data.ContinuousAttributeIterator
+java.io.Serializable <|.. data.ContinuousAttributeIterator
+database.TableData +.. database.TableData.TupleData
+java.io.Serializable <|.. mining.EmergingPattern
+mining.FrequentPattern <|-- mining.EmergingPattern
+java.io.Serializable <|.. mining.Interval
+java.io.Serializable <|.. mining.ContinuousItem
+mining.Item <|-- mining.ContinuousItem
+database.TableSchema +.. database.TableSchema.Column
+data.Iterable <|.. data.ContinuousAttribute
+java.io.Serializable <|.. data.ContinuousAttribute
+data.Attribute <|-- data.ContinuousAttribute
+java.io.Serializable <|.. data.DiscreteAttribute
+data.Attribute <|-- data.DiscreteAttribute
+data.Exception <|-- data.EmptySetException
+mining.Iterable <|.. mining.FrequentPatternMiner
+mining.Serializable <|.. mining.FrequentPatternMiner
+database.Exception <|-- database.DatabaseConnectionException
+@enduml

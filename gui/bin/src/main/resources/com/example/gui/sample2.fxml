@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.HelloController2">
+   <children>
+      <Button layoutX="445.0" layoutY="327.0" mnemonicParsing="false" onAction="#tornaMenu" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: E1E1E1;" text="TORNA AL MENU">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="13.0" prefHeight="33.0" prefWidth="423.0" text="Inserire valore minimo supporto (minsup&gt;0 e minsup&lt;=1):" textFill="#ffd400">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="campoMinSup" layoutX="14.0" layoutY="33.0" prefHeight="25.0" prefWidth="231.0" promptText="es. 0.3" />
+      <Label layoutX="14.0" layoutY="61.0" prefHeight="33.0" prefWidth="423.0" text="Inserire valore minimo grow rate (minGr&gt;0" textFill="#ffd400">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="campoMinGrowRate" layoutX="14.0" layoutY="95.0" prefHeight="25.0" prefWidth="231.0" promptText="es. 1" />
+      <Label layoutX="14.0" layoutY="120.0" prefHeight="33.0" prefWidth="423.0" text="Inserire nome Tabella target:" textFill="#ffd400">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="campoNomeTarget" layoutX="14.0" layoutY="155.0" prefHeight="25.0" prefWidth="231.0" promptText="es. playtennistarget" />
+      <Label layoutX="14.0" layoutY="180.0" prefHeight="33.0" prefWidth="423.0" text="Inserire nome Tabella background:" textFill="#ffd400">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="campoNomeBackground" layoutX="14.0" layoutY="215.0" prefHeight="25.0" prefWidth="231.0" promptText="es. playtennisbackground" />
+      <Button fx:id="bottonConferma" layoutX="300.0" layoutY="327.0" mnemonicParsing="false" onAction="#conferma" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: E1E1E1;" text="CONFERMA">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</Pane>

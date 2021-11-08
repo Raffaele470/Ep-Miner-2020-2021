@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.HelloController">
+   <children>
+       <Text fill="#ffde21" layoutX="270.0" layoutY="51.0" scaleX="3.0" scaleY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EP MINER" wrappingWidth="59.60480880737305">
+           <font>
+               <Font name="Verdana" size="12.0" />
+           </font>
+       </Text>
+       <Button fx:id="bottonNuovaRicerca" layoutX="58.0" layoutY="130.0" mnemonicParsing="false" onAction="#nuovaRicerca" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: E1E1E1;" text="NUOVA SCOPERTA">
+           <font>
+               <Font name="Verdana Bold" size="12.0" />
+           </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+       </Button>
+       <Button fx:id="BottonRicercaArchivio" layoutX="58.0" layoutY="170.0" mnemonicParsing="false" onAction="#ricercaArchivio" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: E1E1E1;" text="RICERCA IN ARCHIVIO">
+           <font>
+               <Font name="Verdana Bold" size="12.0" />
+           </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+       </Button>
+       <Button fx:id="bottonCrediti" layoutX="58.0" layoutY="210.0" mnemonicParsing="false" onAction="#crediti" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: E1E1E1;" text="CREDITI">
+           <font>
+               <Font name="Verdana Bold" size="12.0" />
+           </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+       </Button>
+       <Button fx:id="bottonSegnalaProblema" layoutX="58.0" layoutY="250.0" mnemonicParsing="false" onAction="#segnalaProblema" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: E1E1E1;" text="SEGNALA UN PROBLEMA">
+           <font>
+               <Font name="Verdana Bold" size="12.0" />
+           </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+       </Button>
+      <Hyperlink fx:id="gitlink" layoutX="514.0" layoutY="330.0" onAction="#linkgit" prefHeight="25.0" prefWidth="53.0" scaleX="1.3" scaleY="1.3" text="GitHub" />
+   </children>
+</Pane>

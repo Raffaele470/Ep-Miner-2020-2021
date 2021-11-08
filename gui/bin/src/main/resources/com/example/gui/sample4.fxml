@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.HelloController4">
+<children>
+<Button layoutX="445.0" layoutY="327.0" mnemonicParsing="false" onAction="#tornaMenu" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: E1E1E1;" text="TORNA AL MENU">
+<font>
+    <Font name="Verdana Bold" size="12.0" />
+</font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+</Button>
+      <Text fill="#ffd400" layoutX="242.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREDITI">
+         <font>
+            <Font name="Verdana Bold" size="24.0" />
+         </font>
+      </Text>
+      <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="71.0" prefHeight="258.0" prefWidth="454.0" text="Progetto EPMINER realizzato da:&#10;&#10;Raffaele Di Anna&#10;Alessandro Congedo&#10;Alessandro Carella&#10;&#10;2020/2021&#10;&#10;Corso: Metodi Avanzati Di Programmazione&#10;Prof.ssa. Appice." textFill="#ffd000">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Label>
+</children>
+        </Pane>

@@ -1,0 +1,32 @@
+@startuml
+!define LIGHTORANGE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class MainTest {
++ {static} void main(String[])
+}
+class keyboardinput.Keyboard {
+- {static} boolean printErrors
+- {static} int errorCount
+- {static} String current_token
+- {static} StringTokenizer reader
+- {static} BufferedReader in
++ {static} int getErrorCount()
++ {static} void resetErrorCount(int)
++ {static} boolean getPrintErrors()
++ {static} void setPrintErrors(boolean)
+- {static} void error(String)
+- {static} String getNextToken()
+- {static} String getNextToken(boolean)
+- {static} String getNextInputToken(boolean)
++ {static} boolean endOfLine()
++ {static} String readString()
++ {static} String readWord()
++ {static} boolean readBoolean()
++ {static} char readChar()
++ {static} int readInt()
++ {static} long readLong()
++ {static} float readFloat()
++ {static} double readDouble()
+}
+@enduml

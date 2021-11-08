@@ -1,0 +1,61 @@
+@startuml
+!define LIGHTORANGE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class com.example.gui.HelloController5 {
+- Stage stage
+- Scene scene
++ void tornaMenu(ActionEvent)
+}
+class com.example.gui.HelloApplication {
++ void start(Stage)
++ {static} void main(String[])
+}
+class com.example.gui.HelloController2 {
+- Stage stage
+- Scene scene
+- Parent root
+- TextField campoMinSup
+- TextField campoMinGrowRate
+- TextField campoNomeTarget
+- TextField campoNomeBackground
+~ float minsup
+~ float minGrowRate
+~ String nomeTarget
+~ String nomeBackground
+~ int opzione
+~ {static} String fpMiner
+~ {static} String epMiner
++ void tornaMenu(ActionEvent)
++ void conferma(ActionEvent)
+}
+class com.example.gui.HelloController4 {
+- Stage stage
+- Scene scene
++ void tornaMenu(ActionEvent)
+}
+class com.example.gui.HelloController3 {
+- Stage stage
+- Scene scene
++ Label label1
++ Label label2
+- String fpMiner
+- String epMiner
++ void tornaMenu(ActionEvent)
++ void initialize()
+}
+class com.example.gui.HelloController {
+- Stage stage
+- Scene scene
+- Parent root
+~ {static} int scelta
++ void nuovaRicerca(ActionEvent)
++ void ricercaArchivio(ActionEvent)
++ void crediti(ActionEvent)
++ void segnalaProblema(ActionEvent)
++ void linkgit(ActionEvent)
+}
+
+
+javafx.application.Application <|-- com.example.gui.HelloApplication
+@enduml
