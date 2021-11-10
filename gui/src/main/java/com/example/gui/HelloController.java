@@ -91,7 +91,7 @@ public class HelloController {
      * @author Raffaele Di Anna, Alessandro Carella, Alessandro Congedo
      */
     public void linkgit(ActionEvent actionEvent) throws URISyntaxException, IOException {
-        Runtime.getRuntime().exec("cmd.exe /c start iexplore " + "https://github.com/AleCongi/Metodi_Avanzati_di_Programmazione");
+        Runtime.getRuntime().exec("cmd.exe /c start iexplore " + "https://github.com/Raffaele470/Ep-Miner-2020-2021");
 
     }
 }
